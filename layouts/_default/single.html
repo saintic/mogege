@@ -14,7 +14,7 @@
                         {{ range . }}
                         {{ $name := . }}
                         {{ with $.Site.GetPage "taxonomy" (printf "categories/%s" $name) | default ($.Site.GetPage "taxonomy" (printf "categories/%s" ($name | urlize))) }}
-                          <a href="{{ .Permalink }}"> {{ $name }}, </a>
+                          <a href="{{ .Permalink }}"> {{ $name }} </a>
                         {{ end }}
                         {{ end }}
                 </span>
@@ -70,9 +70,9 @@
 
 
     <div class="post-tags">
-        {{ with .Params.tags }}
-            <section>
+        <section>
             <i class="iconfont icon-tag"></i>Tag(s):
+        {{ with .Params.tags }}
             {{ range . }}
 
                 <!--fix when UglyURLs=true -->
@@ -84,8 +84,12 @@
                 {{ end }}
 
             {{ end }}
-            </section>
+        {{ else }}
+            （无）
         {{ end }}
+
+        </section>
+
         <section>
                 <a href="javascript:window.history.back();">back</a></span> ·
                 <span><a href="{{ .Site.BaseURL }}">home</a></span>
