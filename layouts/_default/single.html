@@ -74,8 +74,15 @@
             <section>
             <i class="iconfont icon-tag"></i>Tag(s):
             {{ range . }}
-            <span class="tag"><a href="{{ "tags/" | absURL }}{{ . | urlize }}/">
-                    #{{.}}</a></span>
+
+                <!--fix when UglyURLs=true -->
+                {{ $tag := . }}
+                <!-- Work-around for https://github.com/gohugoio/hugo/issues/6546 -->
+                {{ $path := (urls.Parse ($tag | urlize)).Path }}
+                {{ with $.Site.GetPage (printf `/tags/%s` $path) }}
+                    <a href="{{ .RelPermalink }}" rel="tag" class="post-tags-link">#{{ .LinkTitle | default $path }}</a>
+                {{ end }}
+
             {{ end }}
             </section>
         {{ end }}

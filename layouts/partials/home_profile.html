@@ -2,7 +2,8 @@
     {{ with .Site.Params.avatar}}
     {{ $avatar := .}}
     <div class="avatar">
-        <a href="/posts/"> <img src="{{ (printf "%s" $avatar)}}"> </a>
+        <!--homepage-->
+        <a> <img src="{{ (printf "%s" $avatar)}}"> </a>
     </div>
     {{ end }}
     {{ with .Site.Params.subtitle}}

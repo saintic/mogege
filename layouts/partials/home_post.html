@@ -4,7 +4,7 @@
     {{ with .Site.Params.avatar}}
     {{ $avatar := .}}
     <div class="avatar">
-        <a href="/posts/"> <img src="{{ (printf "%s" $avatar)}}"> </a>
+        <a href="javascript:;"> <img src="{{ (printf "%s" $avatar)}}"> </a>
     </div>
     {{ end }}
     {{ with .Site.Params.subtitle}}
@@ -51,10 +51,17 @@
         </div>
 				{{ with .Params.tags }}
 				<div class="post-tags">
-        		{{ range . }}
-        			<span class="tag"><a href="{{ "tags/" | absURL }}{{ . | urlize }}/">
-               	 #{{.}}</a></span>
-        		{{ end }}
+                {{ range . }}
+
+                    <!--fix when UglyURLs=true. here home_mode=post-->
+                    {{ $tag := . }}
+                    <!-- Work-around for https://github.com/gohugoio/hugo/issues/6546 -->
+                    {{ $path := (urls.Parse ($tag | urlize)).Path }}
+                    {{ with $.Site.GetPage (printf `/tags/%s` $path) }}
+                        <a href="{{ .RelPermalink }}" rel="tag" class="post-tags-link">#{{ .LinkTitle | default $path }}</a>
+                    {{ end }}
+
+                {{ end }}
 				</div>
 				{{ end }}
 			</div>

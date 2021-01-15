@@ -38,7 +38,16 @@
     <div class="tag-cloud-tags">
     {{ range $.Site.Taxonomies.tags.ByCount }}
         {{ if .Name }}
-        <a href="/tags/{{ .Name | urlize}}/"> {{ .Name }} <small>({{ .Count }})</small></a>
+
+            <!--fix when UglyURLs=true, here tag cloud -->
+            {{ $tag := .Name }}
+            {{ $count := .Count }}
+            <!-- Work-around for https://github.com/gohugoio/hugo/issues/6546 -->
+            {{ $path := (urls.Parse ($tag | urlize)).Path }}
+            {{ with $.Site.GetPage (printf `/tags/%s` $path) }}
+                <a href="{{ .RelPermalink }}" rel="tag" class="post-tags-link"> {{ .LinkTitle | default $path }} <small>({{ $count }})</small></a>
+            {{ end }}
+
         {{ end }}
     {{end}}
     </div>

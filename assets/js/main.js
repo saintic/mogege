@@ -119,5 +119,5 @@ document.addEventListener('DOMContentLoaded', function () {
   _Blog.switchDarkMode()
   _Blog.switchMobileMenu()
   _Blog.scrollIndicator()
-  _Blog.changeTile()
+  //_Blog.changeTile()
 })
