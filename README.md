@@ -80,7 +80,7 @@ Below is example how to create new site from scratch
 ```bash
 hugo new site mydocs; cd mydocs
 git init
-git submodule add https://github.com/Mogeko/mogege  themes/mogege
+git submodule add https://github.com/saintic/mogege  themes/mogege
 cp -R themes/mogege/exampleSite/content .
 ```
 
@@ -288,6 +288,8 @@ paginate = 11 # 每页的文章数
 enableEmoji = true # 支持 Emoji
 enableRobotsTXT = true # 支持 robots.txt
 
+# 开启丑陋的URL模式：即以html结尾
+# uglyURLs = true
 
 preserveTaxonomyNames = true
 
