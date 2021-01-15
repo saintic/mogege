@@ -64,7 +64,7 @@ Hugo 0.68.3 or higher
 Navigate to your hugo project root and run:
 
 ```bash
-git submodule add https://github.com/Mogeko/mogege themes/mogege
+git submodule add https://github.com/saintic/mogege themes/mogege
 ```
 
 Then run hugo (or set `theme: mogege` in configuration file)
