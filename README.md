@@ -354,6 +354,20 @@ preserveTaxonomyNames = true
     createIssueManually= true # If it is 'false', it is auto to make a Github issue when the administrators login.
     distractionFreeMode= false # Enable hot key (cmd|ctrl + enter) submit comment.
 
+[params.social]
+    github = ""    # github username
+    linkedin = ""  # linkedin username
+    twitter = ""   # twitter username
+    instagram = "" # instagram username
+    facebook = ""  # facebook username
+    telegram = ""  # telegram username
+    dribbble = ""  # dribbble username
+    medium = ""    # medium username
+    email = ""     # email
+    wechat = ""    # wechat user QRcode
+    qq = ""        # qq uin
+    weibo = ""     # weibo username
+    zhihu = ""     # zhihu username
 ```
 
 ---
