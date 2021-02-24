@@ -361,7 +361,6 @@ preserveTaxonomyNames = true
     instagram = "" # instagram username
     facebook = ""  # facebook username
     telegram = ""  # telegram username
-    dribbble = ""  # dribbble username
     medium = ""    # medium username
     email = ""     # email
     wechat = ""    # wechat user QRcode
